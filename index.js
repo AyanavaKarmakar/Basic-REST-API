@@ -14,6 +14,17 @@ const app = express();
 const PORT = 5000;
 
 /*
+    For Cross Origin Resource Sharing
+*/
+import cors from 'cors';
+const corsOptions = {
+    origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions))
+
+/*
     specifies we are going to use JSON data in our whole application
 */
 app.use(bodyParser.json());
