@@ -1,7 +1,7 @@
-/*
-    used for routing
-    ! browsers can make only GET requests
-*/
+/**
+ * used for routing
+ * ! browsers can make only GET requests
+ */
 
 import { Router } from 'express';
 
@@ -19,13 +19,13 @@ const users = [
     }
 ]
 
-/*
-    all routes in here are starting with /users
-*/
+/**
+ * all routes in here are starting with /users
+ */
 
-/*
-    ! gets users from the database
-*/
+/**
+ * gets users from the database
+ */
 router.get('/', (req, res) => {
     try {
         res.send(users);
@@ -35,17 +35,17 @@ router.get('/', (req, res) => {
     }
 });
 
-/*  
-    ! adds users to the database
-    why post?
-    to send data from the frontend to the server
-*/
+/**
+ * adds users to the database
+ * why post?
+ * to send data from the frontend to the server
+ */
 router.post('/', (req, res) => {
     try {
-        /*  
-            req.body:
-            grabs the body of the POST request
-        */
+        /**
+         * req.body:
+         * grabs the body of the post request
+         */
         users.push(req.body);
 
         res.send(`User with the User Name: ${req.body.firstName + req.body.lastName} & Age: ${req.body.age} has been added to the database!`);

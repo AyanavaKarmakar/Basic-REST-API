@@ -1,20 +1,21 @@
-/*
-    remember to add:
-    "type": "module",
-    in package.json to use ES6 import statements
-*/
+/**
+ * remember to add:
+ * "type": "module",
+ * in package.json to use ES6 import statements
+ */
 import express from 'express';
-/*
-    allows us to take incoming POST request bodies
-*/
+
+/**
+ * allows us to take incoming POST request bodies
+ */
 import bodyParser from 'body-parser';
 import userRoutes from './routes/users.js';
 
 const app = express();
 
-/*
-    For Cross Origin Resource Sharing
-*/
+/**
+ * For Cross Origin Resource Sharing
+ */
 import cors from 'cors';
 const corsOptions = {
     origin: '*',
@@ -23,23 +24,23 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-/*
-    specifies we are going to use JSON data in our whole application
-*/
+/**
+ * specifies we are going to use JSON data in our whole application
+ */
 app.use(bodyParser.json());
 
 app.use('/users', userRoutes);
 
-/*
-    listens for incoming requests
-*/
+/**
+ * listens for incoming requests
+ */
 app.listen(process.env.PORT || 5000, () => {
     console.log('Server is running!');
 });
 
-/*
-    routes to '/' or home page
-*/
+/**
+ * routes to '/' or home page
+ */
 app.get('/', (req, res) => {
     res.send("Home Page");
 });
