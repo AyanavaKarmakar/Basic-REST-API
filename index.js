@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
                 </a>
                 <p>
                     <p>
-                        Designed and maintained by <u>Ayanava Karmakar</u>
+                        Designed and maintained by <mark><u>Ayanava Karmakar</u></mark>
                     </p>
                     <p>
                         <a href='https://www.linkedin.com/in/ayanava-karmakar-b6ba90219/' target='_blank'>
