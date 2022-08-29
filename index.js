@@ -11,7 +11,6 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/users.js';
 
 const app = express();
-const PORT = 5000;
 
 /*
     For Cross Origin Resource Sharing
@@ -34,8 +33,8 @@ app.use('/users', userRoutes);
 /*
     listens for incoming requests
 */
-app.listen(PORT, () => {
-    console.log(`Server running on port: http://localhost:${PORT}`);
+app.listen(process.env.PORT || 5000, () => {
+    console.log('Server is running!');
 });
 
 /*
