@@ -70,7 +70,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const specificUser = users.find((user) => user.id === req.params.id);
     res.send(specificUser);
-})
+});
 
 /**
  * route for deleting users
@@ -78,6 +78,19 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     users = users.filter((user) => user.id !== req.params.id);
     res.send(`User with the id: ${req.params.id} has been deleted from the database!`);
-})
+});
+
+/**
+ * route for updating user data
+ */
+router.patch('/:id', (req, res) => {
+    let user = users.find((user) => user.id === req.params.id);
+
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.age = req.body.age
+
+    res.send('Database has been updated successfully');
+});
 
 export default router;
