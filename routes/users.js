@@ -16,7 +16,7 @@ const router = Router();
  * holds user lists
  * may or may not be empty by default
  */
-const users = [];
+let users = [];
 
 /**
  * all routes in here are starting with /users
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
          */
         users.push({ ...req.body, id: uuid() });
 
-        res.send(`User with the User Name: ${req.body.firstName + req.body.lastName} & Age: ${req.body.age} has been added to the database!`);
+        res.send(`User with the User Name: ${req.body.firstName + req.body.lastName} has been added to the database!`);
 
     } catch (error) {
         console.log(error);
@@ -68,11 +68,16 @@ router.post('/', (req, res) => {
  * }
  */
 router.get('/:id', (req, res) => {
-    const { id } = req.params;
-
-    const specificUser = users.find((user) => user.id === id);
-
+    const specificUser = users.find((user) => user.id === req.params.id);
     res.send(specificUser);
+})
+
+/**
+ * route for deleting users
+ */
+router.delete('/:id', (req, res) => {
+    users = users.filter((user) => user.id !== req.params.id);
+    res.send(`User with the id: ${req.params.id} has been deleted from the database!`);
 })
 
 export default router;
