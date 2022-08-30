@@ -12,6 +12,17 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/users.js';
 
 const app = express();
+/**
+ * Heroku dynos expose a dynamic port for your app to bind to.
+ * This value is exposed in the $PORT.
+ * This will use the $PORT env var if available,
+ * or fallback to a default port (useful for local development).
+ * Note that when browsing to your application on Heroku,
+ * you still use port 80 ([your-application].herokuapp.com)
+ * and not the port that your process binds on.
+ * Ref: https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error
+ */
+const PORT = process.env.PORT || 5000;
 
 /**
  * For Cross Origin Resource Sharing
@@ -34,8 +45,8 @@ app.use('/users', userRoutes);
 /**
  * listens for incoming requests
  */
-app.listen(process.env.PORT || 5000, () => {
-    console.log('Server is running!');
+app.listen(PORT, () => {
+    console.log(`The app is running on port ${PORT}.`);
 });
 
 /**
