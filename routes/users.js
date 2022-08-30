@@ -56,4 +56,23 @@ router.post('/', (req, res) => {
     }
 });
 
+/**
+ * Route to show specific user details
+ * the '/:' means if we put anything after
+ * the colon, the route is going to get hit
+ * ! /users/2 => req.params
+ * ! the param in this case is id
+ * ! req.params => 
+ * {
+ *  "id": ":2"
+ * }
+ */
+router.get('/:id', (req, res) => {
+    const { id } = req.params;
+
+    const specificUser = users.find((user) => user.id === id);
+
+    res.send(specificUser);
+})
+
 export default router;
