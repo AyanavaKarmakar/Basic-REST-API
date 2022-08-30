@@ -12,6 +12,7 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/users.js';
 
 const app = express();
+
 /**
  * Heroku dynos expose a dynamic port for your app to bind to.
  * This value is exposed in the $PORT.
