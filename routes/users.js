@@ -2,22 +2,21 @@
  * used for routing
  * ! browsers can make only GET requests
  */
-
 import { Router } from 'express';
 
+/**
+ * used for creating unique user ids
+ * Refer:  https://www.npmjs.com/package/uuid
+ */
+import { v4 as uuid } from 'uuid';
+
 const router = Router();
-const users = [
-    {
-        "firstName": "John",
-        "lastName": "Doe",
-        "age": 25
-    },
-    {
-        "firstName": "Jane",
-        "lastName": "Dell",
-        "age": 26
-    }
-]
+
+/**
+ * holds user lists
+ * may or may not be empty by default
+ */
+const users = [];
 
 /**
  * all routes in here are starting with /users
@@ -45,8 +44,9 @@ router.post('/', (req, res) => {
         /**
          * req.body:
          * grabs the body of the post request
+         * ! uuid() generates unique id
          */
-        users.push(req.body);
+        users.push({ ...req.body, id: uuid() });
 
         res.send(`User with the User Name: ${req.body.firstName + req.body.lastName} & Age: ${req.body.age} has been added to the database!`);
 
