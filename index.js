@@ -21,7 +21,7 @@ const app = express();
  * Note that when browsing to your application on Heroku,
  * you still use port 80 ([your-application].herokuapp.com)
  * and not the port that your process binds on.
- * Ref: https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error
+ * @see https://help.heroku.com/P1AVPANS/why-is-my-node-js-app-crashing-with-an-r10-error
  */
 const PORT = process.env.PORT || 5000;
 

@@ -1,6 +1,6 @@
 /**
  * used for creating unique user ids
- * Refer:  https://www.npmjs.com/package/uuid
+ * @see https://www.npmjs.com/package/uuid
  */
 import { v4 as uuid } from 'uuid';
 
