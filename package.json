@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "docker:build": "docker build -t basic-rest-api:1.0 .",
+    "docker:run": "docker run -p 3000:5000 basic-rest-api:1.0",
   },
   "keywords": [],
   "author": "",
